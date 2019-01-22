@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import Counters from "./counters";
 
 class Counter extends Component {
   state = {
-    count: 0
+    count: this.props.value
   };
 
   //we need to define an object styles to be used in formatting the span
@@ -25,7 +26,14 @@ class Counter extends Component {
           onClick={() => this.handleIncrement({ id: 1 })}
           className="btn btn-secondary btn-sm m-2"
         >
-          Increment
+          +
+        </button>
+
+        <button
+          onClick={() => this.props.onDelete(this.props.id)}
+          className="btn btn-danger btn-sm m-2"
+        >
+          Delete
         </button>
       </div>
     );
